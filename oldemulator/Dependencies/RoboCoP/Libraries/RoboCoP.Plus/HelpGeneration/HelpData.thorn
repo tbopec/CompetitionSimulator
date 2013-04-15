@@ -1,0 +1,68 @@
+#-l:thornado\data -l:lb -oext:cs -save:yes -open:no -oe:utf8 
+\using[1]
+
+\defineClass[RoboCoP InSignalInfo]
+{
+	\field[string Name]
+		\desc Имя сигнала
+	\field[string Description]
+		\desc Описание сигнала
+}
+\class{Класс, содержащий информацию о входящих сигналах сервиса}
+
+\defineClass[RoboCoP OutSignalInfo]
+{
+	\field[string Name]
+		\desc Имя сигнала
+	\field[string Description]
+		\desc Описание сигнала
+	\field[string Address]
+		\desc Адресат сигнала
+}
+\class{Класс, содержащий информация об исходящих сигналах сервиса}
+
+\defineClass[RoboCoP DataChannelInfo]
+{
+	\field[int Number]
+		\desc Номер канала
+	\field[string Description]
+		\desc Описание входящих данных
+	\field[DataChannelFormat Format]
+		\desc Формат данных (из соответствующего перечисления)
+	\field[string FormatUserDescription]
+		\desc Дополнительное описание формата данных
+	\field[Type FormatType]
+		\desc Тип, с которым имеет дело формат (в случае INI и подобных ему)
+}
+\class{Класс, содержащий информацию о канале данных (входном или выходном)}
+
+\using[1]
+\defineClass[RoboCoP HelpInfo]
+{
+\field[string Name]
+		\desc Имя сервиса
+\field[string Copyright]
+		\desc Копирайт
+\field[string Description]
+		\desc Описание
+\list[* Ins DataChannelInfo]
+		\desc Входные данные
+\list[* Outs DataChannelInfo]
+		\desc Выходные данные
+\list[* InSignals InSignalInfo]
+		\desc Входящие сигналы
+\list[* OutSignals OutSignalInfo]
+		\desc Исходящие сигналы
+\dict[* Parameters string]
+		\desc Параметры
+}
+
+\class{Класс с описанием всей справочной информации о сервисе}
+
+
+
+
+
+
+
+

@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <OutputPath>$(SolutionDir)\bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B2C2FB2D-01EC-4F73-8D6D-44AC50289832}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Eurosim.Core</RootNamespace>
+    <AssemblyName>Eurosim.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BEPUphysics">
+      <HintPath>..\Dependencies\BEPUphysics.dll</HintPath>
+    </Reference>
+    <Reference Include="FarseerPhysics">
+      <HintPath>..\Dependencies\FarseerPhysics.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="RoboCoP">
+      <HintPath>..\Dependencies\RoboCoP\bin\RoboCoP.dll</HintPath>
+    </Reference>
+    <Reference Include="RoboCoP.Plus.Common">
+      <HintPath>..\Dependencies\RoboCoP\bin\RoboCoP.Plus.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="RoboCoPlus">
+      <HintPath>..\Dependencies\RoboCoP\bin\RoboCoPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="SlimDX, Version=4.0.13.43, Culture=neutral, PublicKeyToken=b1b0c32fd1ffe4f9, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\SlimDX.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Actuators\Actuator.cs" />
+    <Compile Include="Core\Actuators\ActuatorProvider.cs" />
+    <Compile Include="Core\Actuators\ActuatorSettings.cs" />
+    <Compile Include="Core\ActionQueue\ActionQueue.cs" />
+    <Compile Include="Core\ActionQueue\ActionQueueElement.cs" />
+    <Compile Include="Core\ActionQueue\IRobotAction.cs" />
+    <Compile Include="Core\Actuators\ActuatorAction.cs" />
+    <Compile Include="Core\Actuators\DumbGrabbingActuator.cs" />
+    <Compile Include="Core\BodyExtensions.cs" />
+    <Compile Include="Core\Movements\ArcMovement.cs" />
+    <Compile Include="Core\Sensors\Camera\RobotCamera.cs" />
+    <Compile Include="Core\Sensors\Camera\RobotCameraData.cs" />
+    <Compile Include="Core\Sensors\Camera\RobotCameraSettings.cs" />
+    <Compile Include="Core\EmulatorService.cs" />
+    <Compile Include="DWMMeasurement.cs" />
+    <Compile Include="Core\Bots\ACMCommand.cs" />
+    <Compile Include="Core\Bots\ACMSensorInfo.cs" />
+    <Compile Include="Core\Bots\RobotAI.cs" />
+    <Compile Include="Core\Movements\DoubleWheelMovement.cs" />
+    <Compile Include="Core\Movements\DoubleWheelMovementSettings.cs" />
+    <Compile Include="Physics\Bepu\BepuBody.cs" />
+    <Compile Include="Physics\Bepu\BepuConverter.cs" />
+    <Compile Include="Physics\Bepu\BepuWorld.cs" />
+    <Compile Include="Physics\Farseer\FarseerBody.cs" />
+    <Compile Include="Physics\Farseer\FarseerConverter.cs" />
+    <Compile Include="Physics\Farseer\FarseerWorld.cs" />
+    <Compile Include="Rules\Eurobot 2011 - ChessUp\Bots\Common.cs" />
+    <Compile Include="Rules\Eurobot 2011 - ChessUp\Bots\EurobotBotBase.cs" />
+    <Compile Include="Rules\Eurobot 2011 - ChessUp\Bots\MehrunesDagon.cs" />
+    <Compile Include="Rules\Eurobot 2011 - ChessUp\Bots\Namira.cs" />
+    <Compile Include="Rules\Eurobot 2011 - ChessUp\Bots\Nocturnal.cs" />
+    <Compile Include="Rules\Eurobot 2011 - ChessUp\Bots\Sheogorath.cs" />
+    <Compile Include="Rules\Eurobot 2011 - ChessUp\Bots\Vaermina.cs" />
+    <Compile Include="Rules\Eurobot 2011 - ChessUp\Definitions\ChessUpActuator.cs" />
+    <Compile Include="Rules\Eurobot 2011 - ChessUp\Definitions\ChessUpRules.cs" />
+    <Compile Include="Core\DumbRules.cs" />
+    <Compile Include="Core\EmulatorSettings.cs" />
+    <Compile Include="Core\RobotSettings.cs" />
+    <Compile Include="Core\Emulator.cs" />
+    <Compile Include="Core\Movements\Movement.cs" />
+    <Compile Include="Core\Movements\MovementProvider.cs" />
+    <Compile Include="Core\Movements\TrivialMovement.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\Robot.cs" />
+    <Compile Include="Core\Rules.cs" />
+    <Compile Include="Core\Sensors\EmulatedSensorProvider.cs" />
+    <Compile Include="Core\Sensors\SensorModel.cs" />
+    <Compile Include="Core\Sensors\MagicEye\MagicEye.cs" />
+    <Compile Include="Core\Sensors\MagicEye\MagicEyeData.cs" />
+    <Compile Include="Core\Sensors\MagicEye\MagicEyeSettings.cs" />
+    <Compile Include="Core\Sensors\Navigator\NavigatorData.cs" />
+    <Compile Include="Core\Sensors\Navigator\NavigatorModel.cs" />
+    <Compile Include="Core\Sensors\Navigator\EmulatedNavigatorSettings.cs" />
+    <Compile Include="Rules\Eurobot 2011 - ChessUp\Definitions\ChessUpFigure.cs" />
+    <Compile Include="Rules\Eurobot 2011 - ChessUp\Definitions\ChessUpScores.cs" />
+    <Compile Include="Rules\Eurobot 2012 - TreasureIsland\CoinGrabbingActuator.cs" />
+    <Compile Include="Rules\Eurobot 2012 - TreasureIsland\TreasureIslandActuator.cs" />
+    <Compile Include="Rules\Eurobot 2012 - TreasureIsland\TreasureIslandFigure.cs" />
+    <Compile Include="Rules\Eurobot 2012 - TreasureIsland\TreasureIslandRules.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dependencies\AIRLab\AIRLab\AIRLab.csproj">
+      <Project>{20CB12B3-6B71-4E2D-AED8-9C76578885D5}</Project>
+      <Name>AIRLab</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Engine\Eurosim.Engine.csproj">
+      <Project>{A316853C-7F60-4C7F-8FB5-6BAFBC417A68}</Project>
+      <Name>Eurosim.Engine</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Graphics.Plus\Graphics.Plus.csproj">
+      <Project>{4DC31792-DB9F-4A7E-9454-473A030076DB}</Project>
+      <Name>Graphics.Plus</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

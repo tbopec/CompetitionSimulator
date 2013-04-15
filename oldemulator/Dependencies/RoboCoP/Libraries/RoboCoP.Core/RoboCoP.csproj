@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4A4499C2-5751-4560-9AF6-092E2D595560}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RoboCoP</RootNamespace>
+    <AssemblyName>RoboCoP</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.CoreEx">
+      <HintPath>..\..\..\References\Rx\System.CoreEx.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive">
+      <HintPath>..\..\..\References\Rx\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commander\CommanderMock.cs" />
+    <Compile Include="Commander\ISwitchNegotiator.cs" />
+    <Compile Include="Commander\MailSlotMock.cs" />
+    <Compile Include="Commander\SwitchNegotiator.cs" />
+    <Compile Include="Communication\Connection\ConnectionProxies.cs" />
+    <Compile Include="Communication\Receiving\DataIn.cs" />
+    <Compile Include="Communication\Sending\DataOut.cs" />
+    <Compile Include="Communication\Receiving\IIn.cs" />
+    <Compile Include="Communication\Sending\IDataOut.cs" />
+    <Compile Include="Communication\Sending\IOut.cs" />
+    <Compile Include="Exceptions\EventReceiverFailedException.cs" />
+    <Compile Include="Exceptions\LostIOException.cs" />
+    <Compile Include="Exceptions\MessageValidationFailed.cs" />
+    <Compile Include="Helpers\ConcurentDictionaryExtension.cs" />
+    <Compile Include="Helpers\ConcurentLinkedList\ConcurentLinkedList.cs" />
+    <Compile Include="Helpers\ConcurentLinkedList\ConcurentLinkedListEnumerator.cs" />
+    <Compile Include="Helpers\ConcurentLinkedList\ConcurentLinkedListItem.cs" />
+    <Compile Include="Helpers\ListExtension.cs" />
+    <Compile Include="Helpers\ObservableExtensions.cs" />
+    <Compile Include="Helpers\ReceiverExtension.cs" />
+    <Compile Include="Helpers\SenderExtension.cs" />
+    <Compile Include="IServiceSettings.cs" />
+    <Compile Include="Message\BaseMessageFactory.cs" />
+    <Compile Include="Message\DataMessageFactory.cs" />
+    <Compile Include="Protocols\INetworkAddress.cs" />
+    <Compile Include="Protocols\ProtocolProvider.cs" />
+    <Compile Include="Protocols\ProtocolProviderFactory.cs" />
+    <Compile Include="Protocols\TCP\TCPAddress.cs" />
+    <Compile Include="Protocols\TCP\TCPConnection.cs" />
+    <Compile Include="Protocols\TCP\TCPConnectionManager.cs" />
+    <Compile Include="Protocols\TCP\TCPProtocolProvider.cs" />
+    <Compile Include="ServiceState.cs" />
+    <Compile Include="Commander\Commander.cs" />
+    <Compile Include="Commander\ICommander.cs" />
+    <Compile Include="Commander\IMailSlot.cs" />
+    <Compile Include="Commander\MailSlot.cs" />
+    <Compile Include="Communication\Sending\SingleSender.cs" />
+    <Compile Include="Exceptions\InvalidMessageTypeException.cs" />
+    <Compile Include="Helpers\DictionaryExtension.cs" />
+    <Compile Include="Communication\Receiving\EventReceiver.cs" />
+    <Compile Include="Communication\Connection\IConnection.cs" />
+    <Compile Include="Communication\Connection\ISafeConnection.cs" />
+    <Compile Include="Communication\Connection\IStableConnection.cs" />
+    <Compile Include="Communication\Receiving\IEventReceiver.cs" />
+    <Compile Include="Communication\Receiving\IReceiver.cs" />
+    <Compile Include="Communication\Receiving\Receiver.cs" />
+    <Compile Include="Communication\Connection\SafeConnection.cs" />
+    <Compile Include="Communication\Sending\AbstractConnectionManager.cs" />
+    <Compile Include="Communication\Sending\IConnectionsManager.cs" />
+    <Compile Include="Communication\Sending\ISender.cs" />
+    <Compile Include="Communication\Sending\MultiSender.cs" />
+    <Compile Include="Helpers\EnumerableExtension.cs" />
+    <Compile Include="Helpers\ArrayExtension.cs" />
+    <Compile Include="Communication\Connection\StableConnection.cs" />
+    <Compile Include="Message\MessageFactory.cs" />
+    <Compile Include="Message\Model\Error.cs" />
+    <Compile Include="Message\Model\Signal.cs" />
+    <Compile Include="Message\Model\DataMessage.cs" />
+    <Compile Include="Message\MessageSerializer.cs" />
+    <Compile Include="Message\MessageValidator.cs" />
+    <Compile Include="Message\Model\MessageType.cs" />
+    <Compile Include="Exceptions\ProtocolException.cs" />
+    <Compile Include="Exceptions\ProtocolFormatException.cs" />
+    <Compile Include="Message\Model\Message.cs" />
+    <Compile Include="Message\MessageDeserializer.cs" />
+    <Compile Include="Message\Model\AddressableMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>
+      </ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>
+      </ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>
+      </ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+</Project>

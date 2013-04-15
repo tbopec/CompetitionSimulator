@@ -1,0 +1,77 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<!--
+	
+		=========  !!! README !!! ==========
+	
+		Для того, чтобы изменения в этом файле применились, необхоимо закрыть и снова открыть солюшн.
+
+-->
+
+	<PropertyGroup>
+		<DeployDir>$(TargetDir)deploy\</DeployDir>
+		<ReplayerWindowsDir>$(DeployDir)ReplayerWindows\</ReplayerWindowsDir>
+		<ReplayerMonoDir>$(DeployDir)ReplayerMono\</ReplayerMonoDir>
+		<ReplayerConfigFile>replayer.cfg</ReplayerConfigFile>
+		
+		<isDebug>false</isDebug>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+		<isDebug>true</isDebug>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<replayerBaseItems Include="$(TargetDir)EurosimReplayer.exe.config" />
+		<replayerBaseItems Include="$(TargetDir)EurosimReplayer.exe" />
+		<replayerBaseItems Include="$(TargetDir)AIRLab.dll" />
+		<replayerBaseItems Include="$(TargetDir)Eurosim.Engine.dll" />
+		<replayerBaseItems Include="$(TargetDir)Ionic.Zip.dll" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<replayerWindowsItems Include="@(replayerBaseItems)" />
+		<replayerWindowsItems Include="$(TargetDir)Eurosim.Graphics.Plus.dll" />	
+		<replayerWindowsItems Include="$(TargetDir)SlimDX.dll" />	
+	</ItemGroup>
+	
+	<ItemGroup>
+		<replayerMonoItems Include="@(replayerBaseItems)" />
+		<replayerMonoItems Include="$(TargetDir)Eurosim.Graphics.Winforms.dll" />	
+	</ItemGroup>
+	
+	<ItemGroup>
+		<configBaseText Include="[EurosimReplayer]" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<configMonoText Include="@(configBaseText)" />
+		<configMonoText Include="VideoMode=Winforms" />
+	</ItemGroup>
+	<ItemGroup>
+		<configWindowsText Include="@(configBaseText)" />
+		<configWindowsText Include="VideoMode=DirectX" />
+	</ItemGroup>
+	
+	
+	<Target Name="CleanDeployDir">
+		<RemoveDir Directories="$(DeployDir)" Condition="Exists('$(DeployDir)')" ContinueOnError="true" />
+	</Target>
+	
+	<Target Name="ReplayerWindows">
+		<Copy SourceFiles="@(replayerWindowsItems)" DestinationFolder="$(ReplayerWindowsDir)" SkipUnchangedFiles="true" />
+		<WriteLinesToFile File="$(ReplayerWindowsDir)$(ReplayerConfigFile)" Lines="@(configWindowsText)" Overwrite="true" Encoding="Unicode"/>
+	</Target>
+	
+	<Target Name="ReplayerMono">
+		<Copy SourceFiles="@(replayerMonoItems)" DestinationFolder="$(ReplayerMonoDir)" SkipUnchangedFiles="true" />
+		<WriteLinesToFile File="$(ReplayerMonoDir)$(ReplayerConfigFile)" Lines="@(configMonoText)" Overwrite="true" Encoding="Unicode"/>
+	</Target>
+
+	<Target Name="All">
+		<CallTarget Targets="CleanDeployDir" ContinueOnError="false" />
+		<CallTarget Targets="ReplayerWindows" ContinueOnError="false" />
+		<CallTarget Targets="ReplayerMono" ContinueOnError="false" />
+	</Target>
+
+</Project>
