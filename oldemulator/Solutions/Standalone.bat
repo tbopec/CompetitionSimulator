@@ -1,1 +1,0 @@
-start bin\EurosimStandalone.exe StandaloneMode.cfg

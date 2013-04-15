@@ -1,1 +1,0 @@
-start bin\EurosimReplayer.exe ReplayerTest.cfg

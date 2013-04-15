@@ -1,18 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <OutputPath>$(SolutionDir)\bin</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B26AED89-2B91-4A0B-8046-F0BBC016ACBA}</ProjectGuid>
+    <ProjectGuid>{F3800797-250B-4DDB-96B5-2B89EC0DC24A}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GemsHunt.Server</RootNamespace>
-    <AssemblyName>GemsHunt.Server</AssemblyName>
+    <RootNamespace>kinect</RootNamespace>
+    <AssemblyName>kinect</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -23,6 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -31,47 +29,49 @@
     <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
+    <Compile Include="BallIntersection.cs" />
+    <Compile Include="BoxIntersection.cs" />
+    <Compile Include="CylinderIntersection.cs" />
+    <Compile Include="Integration\Kinect.cs" />
+    <Compile Include="Integration\SensorRotation.cs" />
+    <Compile Include="Integration\SimpleSonar.cs" />
+    <Compile Include="Intersector.cs" />
+    <Compile Include="PlaneIntersection.cs" />
+    <Compile Include="QuadEquation.cs" />
+    <Compile Include="Ray.cs" />
+    <Compile Include="Tests\BodyIntersectionTests.cs" />
+    <Compile Include="Tests\SimpleSonarTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\kinect\kinect\kinect\kinect.csproj">
-      <Project>{F3800797-250B-4DDB-96B5-2B89EC0DC24A}</Project>
-      <Name>kinect</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AIRLab\AIRLab.csproj">
-      <Project>{20CB12B3-6B71-4E2D-AED8-9C76578885D5}</Project>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\..\packages\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\dev\AIRLab\AIRLab.csproj">
+      <Project>{20cb12b3-6b71-4e2d-aed8-9c76578885d5}</Project>
       <Name>AIRLab</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Engine\Eurosim.Engine.csproj">
-      <Project>{A316853C-7F60-4C7F-8FB5-6BAFBC417A68}</Project>
+    <ProjectReference Include="..\..\..\..\dev\Engine\Eurosim.Engine.csproj">
+      <Project>{a316853c-7f60-4c7f-8fb5-6bafbc417a68}</Project>
       <Name>Eurosim.Engine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GemsHunt.Library\GemsHunt.Library.csproj">
+    <ProjectReference Include="..\..\..\..\dev\GemsHunt.Library\GemsHunt.Library.csproj">
       <Project>{4C839063-DA6E-4A45-A158-3C78B316BB56}</Project>
       <Name>GemsHunt.Library</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Graphics.Plus\Graphics.Plus.csproj">
-      <Project>{4DC31792-DB9F-4A7E-9454-473A030076DB}</Project>
-      <Name>Graphics.Plus</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Physics\Physics.csproj">
-      <Project>{4FAD9255-3334-4C61-B8D8-97BA4F6E351B}</Project>
-      <Name>Physics</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Process.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

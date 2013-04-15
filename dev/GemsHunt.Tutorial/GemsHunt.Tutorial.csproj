@@ -67,10 +67,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\kinect\kinect\kinect\kinect\kinect.csproj">
-      <Project>{F3800797-250B-4DDB-96B5-2B89EC0DC24A}</Project>
-      <Name>kinect</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AIRLab\AIRLab.csproj">
       <Project>{20CB12B3-6B71-4E2D-AED8-9C76578885D5}</Project>
       <Name>AIRLab</Name>
@@ -86,6 +82,10 @@
     <ProjectReference Include="..\Graphics.Plus\Graphics.Plus.csproj">
       <Project>{4DC31792-DB9F-4A7E-9454-473A030076DB}</Project>
       <Name>Graphics.Plus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kinect\kinect\kinect\kinect.csproj">
+      <Project>{f3800797-250b-4ddb-96b5-2b89ec0dc24a}</Project>
+      <Name>kinect</Name>
     </ProjectReference>
     <ProjectReference Include="..\Physics\Physics.csproj">
       <Project>{4FAD9255-3334-4C61-B8D8-97BA4F6E351B}</Project>

@@ -32,7 +32,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReplayDemo", "ReplayDemo\Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BodyApiDemo", "BodyApiDemo\BodyApiDemo.csproj", "{0C1C852D-33A2-4F84-8445-68C5492A6505}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kinect", "..\kinect\kinect\kinect\kinect\kinect.csproj", "{F3800797-250B-4DDB-96B5-2B89EC0DC24A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kinect", "kinect\kinect\kinect\kinect.csproj", "{F3800797-250B-4DDB-96B5-2B89EC0DC24A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
